@@ -2,9 +2,80 @@
   text-align: center;
 }
 
+.page{
+  display: grid;
+  font-size: 5rem;
+  text-align: center;
+  justify-content: center;
+  width: 95%;
+  margin-left: 5%;
+}
+
+.header-aposta{
+  width: 100%;
+  display: block;
+}
+
+.buttons{
+  display: flex;
+  gap: 10px;
+  margin-top: 10%;
+  justify-content: center;
+}
+
+.table-apostas{
+  margin-top:5%;
+  width: 40%;
+  margin-left: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.form{
+  display:  grid;
+  justify-content: center;
+  width: 100%;
+}
+
+.sorteio-aberto{
+  margin-top: 100px;
+  text-align: center;
+}
+
+.sorteio-aberto>div{
+  margin-top: 100px;
+}
+
+.buttons-apostas-fechadas{
+  margin-top: 4%;
+  justify-content: center;
+  display: flex;
+}
+
+.text-field{
+  display:  flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.sorteio-fechado{
+  width: 95%;
+  margin-left: 5%;
+  justify-content: center;
+  display: grid;
+  margin-top: 15%;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.table-ranking{
+  margin-left: 10%;
+  margin-top: 5%;
+  width: 80%;
+  justify-content: right;
 }
 
 @media (prefers-reduced-motion: no-preference) {
