@@ -76,7 +76,7 @@ function Home(){
             return(
             <div className='sorteio-aberto'>
                 <div className ='page'>Sorteio aberto: </div>
-                <h1>teste</h1>
+                <h1>{sorteio.nome}</h1>
             </div>
             );
             

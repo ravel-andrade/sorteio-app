@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
@@ -12,7 +12,7 @@ function fechaSorteio(){
        'Content-Type': 'application/json',
      }
    })
-   return <Navigate to={"/criarAposta"}/>
+   window.location.href='/'
    }
 
    function reload(){
