@@ -35,8 +35,15 @@ function Home(){
         });
       }, []);
 
+      
       React.useEffect(() => {
         axios.get(baseURLApostas).then((response) => {
+            response.data.sort(function(x,y){
+                let a = x.apostador.nome.toUpperCase();
+                let b = y.apostador.nome.toUpperCase();
+
+                return a==b? 0 : a > b ? 1 : -1;
+            })
             setApostas(response.data);
         });
       }, []);
@@ -102,37 +109,47 @@ function Home(){
                         <Button onClick={() => setGoToSorteio(true)} variant="contained">Sortear</Button>
                         <Button onClick={() => setGoToRanking(true)} variant="outlined">Ranking</Button>
                         </div>
-                        
-                        <div className='teste'>
-                            <div className='table-apostas'>
-                                <TableContainer component={Paper}>
-                                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                                        <TableHead>
-                                        <TableRow>
-                                            <TableCell>Nome</TableCell>
-                                            <TableCell align="right">Numeros</TableCell>
-                                        </TableRow>
-                                        </TableHead>
-                                        <TableBody>
-                                        {apostas?.map((row) => (
-                                            <TableRow
-                                            key={row?.apostador?.nome}
-                                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                            >
-                                            <TableCell component="th" scope="row">
-                                                {row?.apostador?.nome}
-                                            </TableCell>
-                                            <TableCell align="right">{row.numeros}</TableCell>
-                                            </TableRow>
-                                        ))}
-                                        </TableBody>
-                                    </Table>
-                                </TableContainer>
-                            </div>
-                        </div>
                     </div>
                 );
             }
+        }
+
+        function apostasDoSorteio(){ 
+            if(apostas!=null){
+                return(
+                    <div className='teste'>
+                                <div className='table-apostas'>
+                                    <TableContainer component={Paper}>
+                                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                                            <TableHead>
+                                            <TableRow>
+                                                <TableCell>Nome</TableCell>
+                                                <TableCell align="right">Numeros</TableCell>
+                                            </TableRow>
+                                            </TableHead>
+                                            <TableBody>
+                                            {apostas?.map((row) => (
+                                                <TableRow
+                                                key={row?.apostador?.nome}
+                                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                                >
+                                                <TableCell component="th" scope="row">
+                                                    {row?.apostador?.nome}
+                                                </TableCell>
+                                                <TableCell align="right">{row.numeros}</TableCell>
+                                                </TableRow>
+                                            ))}
+                                            </TableBody>
+                                        </Table>
+                                    </TableContainer>
+                                </div>
+                            </div>
+                )
+            }else{
+                return(<h3 className='non-apostas'>Nenhuma aposta foi feita até o momento</h3>)
+            }
+            
+
         }
     
     
@@ -140,6 +157,7 @@ function Home(){
         <div className="component">
            {dadosSorteio()}
            {aposta()}
+           {apostasDoSorteio()}
         </div>
      );
     }

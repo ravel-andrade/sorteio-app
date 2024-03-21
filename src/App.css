@@ -31,6 +31,14 @@
   justify-content: center;
 }
 
+.table-numeros-sorteados{
+  margin-top:5%;
+  width: 20%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: center;
+}
+
 .form{
   display:  grid;
   justify-content: center;
@@ -50,6 +58,27 @@
   margin-top: 4%;
   justify-content: center;
   display: flex;
+}
+
+.tabela-sorteio{
+  float:left;
+  margin-top:5%;
+  width: 40%;
+  margin-left: 3%;
+  display: flex;
+  justify-content: center;
+}
+
+.non-apostas{
+  margin-top: 5%;
+  justify-content: center;
+  text-align: center;
+}
+
+.dados-basicos-sorteio{
+  margin-top: 5%;
+  justify-content: center;
+  text-align: center;
 }
 
 .text-field{
